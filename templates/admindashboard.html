@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/dashboard.css')}}">
+</head>
+
+<body class="d-flex flex-column" style="height: 100%; min-height: 100vh;">
+
+  <!-- NAVBAR -->
+  <header>
+    <nav style="background: #151514;" class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-4" href="/admin/dashboard">Ago</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mx-4" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <svg fill="#fff" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="6 1.98 40.02 48.03">
+                  <rect fill="none" height="4.8" rx="1.6" width="27.2" x="12.4" y="26"></rect>
+                  <rect fill="none" height="4.8" rx="1.6" width="24" x="12.4" y="35.6"></rect>
+                  <g>
+                    <path
+                      d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z">
+                    </path>
+                    <path
+                      d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z">
+                    </path>
+                  </g>
+                </svg>Lista Prenotazioni</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/admin/history">
+                <svg fill="#fff" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 1 16 14">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3 1L1.66667 5H0V8H1V15H3V13H13V15H15V8H16V5H14.3333L13 1H3ZM4 9C3.44772 9 3 9.44772 3 10C3 10.5523 3.44772 11 4 11C4.55228 11 5 10.5523 5 10C5 9.44772 4.55228 9 4 9ZM11.5585 3H4.44152L3.10819 7H12.8918L11.5585 3ZM12 9C11.4477 9 11 9.44772 11 10C11 10.5523 11.4477 11 12 11C12.5523 11 13 10.5523 13 10C13 9.44772 12.5523 9 12 9Z">
+                  </path>
+                </svg>Storico</a>
+            </li>
+            <li class="nav-item">
+            </li>
+          </ul>
+          <button class="btn btn-dark gradient-red d-flex align-items-center justify-content-center" id="navbarbutton"
+            onclick="location.href='/admin/logout';">LOGOUT</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div style="height: 5rem; width: 100%;"></div> <!-- MARGIN BEFORE CARDS -->
+
+  <!-- BODY CARDS-->
+
+  <div class="mx-md-4 px-md-3 py-3 align-items-center rounded home-card h-auto" id="bookingsContainer">
+    <h2>Lista Prenotazioni</h2>
+
+    <!-- TABELLA PRENOTAZIONI -->
+    <table id="bookingsTable" class="table table-dark table-borderless rounded overflow-hidden text-break">
+      <thead class="border" id="bookingsTableHead">
+        <tr>
+          <th>Stato</th>
+          <th>Nome</th>
+          <th>Prenotato per</th>
+          <th>Prenotato il</th>
+        </tr>
+      </thead>
+      <tbody id="bookingsTableBody">
+      </tbody>
+    </table>
+
+  </div>
+
+
+
+
+
+  <!-- FINE BODY CARDS -->
+
+
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- SCRIPTS -->
+  <script type="text/javascript" src="{{ url_for('static',filename='javascript/dashboard.js') }}"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+  <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+</body>
+
+</html>

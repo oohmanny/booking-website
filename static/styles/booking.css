@@ -1,0 +1,20 @@
+#progress{
+    width:100%;
+    height: 10px;
+    border: 1px solid #F6F1EA;
+    border-radius: 15px;
+}
+
+#progress-bar{
+    height: 100%;
+}
+
+#remaining-chars{
+    font-size: 13px;
+    margin-top: 3px;
+    float: right;
+}
+
+textarea{
+    resize: none;
+}

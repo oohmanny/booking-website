@@ -1,0 +1,257 @@
+.navbar{
+    /* background: #2D3339; */
+    background: #121417;
+    padding: 0.8rem 0;
+}
+
+.navbar .navbar-brand{
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #E35F5F;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a{
+    color: #F6F1EA;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding-right: 1rem;
+}
+
+#navbarSupportedContent > ul > li:nth-child(n) > a:hover{
+    color: #E35F5F;
+    font-weight: 600;
+    & svg{
+    transition: fill .15s ease-in-out;
+    fill: #E35F5F;
+    }
+}
+
+body{
+    background: #1F1F1E;
+}
+
+.home-card{
+    background: #E1D4B7;
+    height: auto;
+}
+
+.home-card-primary{
+    background: #008080;
+}
+
+.home-card-red{
+  background: #ED9797;
+}
+
+.home-card-info{
+  background: #C5E0E0;
+}
+
+div.col-sm-12:nth-child(1) > h2:nth-child(1){
+    text-align: left;
+}
+
+.gradient{
+    white-space: nowrap;
+    border: none;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    z-index: 1;
+    width: 14rem;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #008080;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #E35F5F;
+      transition: all .2s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .gradient-secondary{
+    white-space: nowrap;
+    border: none;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    z-index: 1;
+    width: 14rem;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0D1B1E;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #183339;
+      transition: all .2s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  .gradient-red{
+    white-space: nowrap;
+    border: none;
+    display: inline-block;
+    padding: .75rem 1.25rem;
+    border-radius: 10rem;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+    transition: all .3s;
+    position: relative;
+    overflow: hidden;
+    font-family: "Roboto", sans-serif;
+    z-index: 1;
+    width: 14rem;
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #681212;
+      border-radius: 10rem;
+      z-index: -2;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 100%;
+      background-color: #BF2222;
+      transition: all .2s;
+      border-radius: 10rem;
+      z-index: -1;
+    }
+    &:hover {
+      &:before {
+        width: 100%;
+      }
+    }
+  }
+
+  footer{
+    position: relative;
+    bottom: 0;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.1rem;
+  }
+
+  .info-card{
+    width:32%;
+  }
+
+  #navbarbutton{
+    width: 10rem;
+    height: 2.5rem;
+  }
+
+  svg{
+    height: auto;
+    vertical-align: text-bottom;
+    margin-right: 0.5rem;
+  }
+
+
+  .service-card{
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding: 0 3rem;
+    font-weight: 600;
+    font-size: 1.5rem;
+    background-color: #008080;
+  }
+
+  .service-card:hover{
+    background-color: #e35f5f;
+    color: white;
+  }
+
+  div.col-12:nth-child(n) > a:nth-child(n){
+    text-decoration: none;
+    color: white;
+    &:hover{
+      color: black;
+    }
+  }
+
+  .infocardsxs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #008080;
+  }
+
+  .infocardsxs div{
+    color: white;
+    font-weight: 600;
+  }
+
+  .infocards{
+    background: #008080;
+    height: auto;
+    color: white;
+    font-weight: 600;
+  }

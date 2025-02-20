@@ -1,0 +1,33 @@
+ /* Style the button that is used to open and close the collapsible content */
+ .collapsible {
+    background-color: #C5E0E0;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+  }
+  
+  table{
+    --bs-table-bg: #005252 !important;
+  }
+
+  thead{
+    --bs-table-bg: #008F8F !important;
+  }
+
+  .bookingInfo:hover{
+    --bs-table-bg: #005E5E !important;
+    cursor: pointer;
+  }
+
+  .active{
+    --bs-table-bg: #006666 !important;
+  }
+
+  .bookingDescription{
+    --bs-table-bg: #006E6E !important;
+  }

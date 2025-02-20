@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prenota un appuntamento</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/booking.css')}}">
+</head>
+
+<body class="d-flex flex-column" style="height: 100%; min-height: 100vh;">
+
+  <!-- NAVBAR -->
+  <header>
+    <nav style="background: #151514;" class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand mx-4" href="/">Ago</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse mx-4" id="navbarSupportedContent">
+          <ul class="navbar-nav m-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <svg fill="#fff" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 15">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M8 0L0 6V8H1V15H4V10H7V15H15V8H16V6L14 4.5V1H11V2.25L8 0ZM9 10H12V13H9V10Z"></path>
+                </svg>Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/servizi">
+                <svg fill="#fff" width="20px" xmlns="http://www.w3.org/2000/svg" viewBox="0 1 16 14">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3 1L1.66667 5H0V8H1V15H3V13H13V15H15V8H16V5H14.3333L13 1H3ZM4 9C3.44772 9 3 9.44772 3 10C3 10.5523 3.44772 11 4 11C4.55228 11 5 10.5523 5 10C5 9.44772 4.55228 9 4 9ZM11.5585 3H4.44152L3.10819 7H12.8918L11.5585 3ZM12 9C11.4477 9 11 9.44772 11 10C11 10.5523 11.4477 11 12 11C12.5523 11 13 10.5523 13 10C13 9.44772 12.5523 9 12 9Z">
+                  </path>
+                </svg>Servizi</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/location">
+                <svg fill="#fff" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="2.73 1.25 18.53 21.5">
+                  <g id="style=fill">
+                    <g id="location">
+                      <path id="Subtract" fill-rule="evenodd" clip-rule="evenodd"
+                        d="M8.89129 21.0787L8.9461 21.1315L8.95039 21.1357C9.95462 22.098 10.9283 22.7576 12.0296 22.7449C13.1259 22.7323 14.0956 22.0555 15.0992 21.0783C16.4747 19.7455 18.2545 17.9477 19.5403 15.8149C20.831 13.6741 21.6639 11.1292 21.0372 8.33595C18.9197 -1.10413 5.09133 -1.11519 2.96276 8.32592C2.35382 11.04 3.12314 13.5227 4.34999 15.6268C5.57222 17.7231 7.2824 19.5029 8.65394 20.8471C8.73386 20.9254 8.81273 21.0023 8.89035 21.0778L8.89129 21.0787ZM12 6.25012C10.2051 6.25012 8.75 7.7052 8.75 9.50012C8.75 11.295 10.2051 12.7501 12 12.7501C13.7949 12.7501 15.25 11.295 15.25 9.50012C15.25 7.7052 13.7949 6.25012 12 6.25012Z">
+                      </path>
+                    </g>
+                  </g>
+                </svg>Dove Siamo</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <svg fill="#fff" width="20px" height="20px" xmlns="http://www.w3.org/2000/svg"
+                  viewBox="6 1.98 40.02 48.03">
+                  <rect fill="none" height="4.8" rx="1.6" width="27.2" x="12.4" y="26"></rect>
+                  <rect fill="none" height="4.8" rx="1.6" width="24" x="12.4" y="35.6"></rect>
+                  <g>
+                    <path
+                      d="m36.4 14.8h8.48a1.09 1.09 0 0 0 1.12-1.12 1 1 0 0 0 -.32-.8l-10.56-10.56a1 1 0 0 0 -.8-.32 1.09 1.09 0 0 0 -1.12 1.12v8.48a3.21 3.21 0 0 0 3.2 3.2z">
+                    </path>
+                    <path
+                      d="m44.4 19.6h-11.2a4.81 4.81 0 0 1 -4.8-4.8v-11.2a1.6 1.6 0 0 0 -1.6-1.6h-16a4.81 4.81 0 0 0 -4.8 4.8v38.4a4.81 4.81 0 0 0 4.8 4.8h30.4a4.81 4.81 0 0 0 4.8-4.8v-24a1.6 1.6 0 0 0 -1.6-1.6zm-32-1.6a1.62 1.62 0 0 1 1.6-1.55h6.55a1.56 1.56 0 0 1 1.57 1.55v1.59a1.63 1.63 0 0 1 -1.59 1.58h-6.53a1.55 1.55 0 0 1 -1.58-1.58zm24 20.77a1.6 1.6 0 0 1 -1.6 1.6h-20.8a1.6 1.6 0 0 1 -1.6-1.6v-1.57a1.6 1.6 0 0 1 1.6-1.6h20.8a1.6 1.6 0 0 1 1.6 1.6zm3.2-9.6a1.6 1.6 0 0 1 -1.6 1.63h-24a1.6 1.6 0 0 1 -1.6-1.6v-1.6a1.6 1.6 0 0 1 1.6-1.6h24a1.6 1.6 0 0 1 1.6 1.6z">
+                    </path>
+                  </g>
+                </svg>Prenotazione</a>
+              <ul class="dropdown-menu dropdown-menu-dark text-center">
+                <li><a class="dropdown-item" href="/prenota">Nuova Prenotazione</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/gestisci-prenotazione">Gestisci Prenotazione</a></li>
+              </ul>
+            </li>
+
+          </ul>
+          <button class="btn btn-dark gradient d-flex align-items-center justify-content-center" id="navbarbutton"
+            onclick="location.href='#';">Prenota</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <div style="height: 5rem; width: 100%;"></div> <!-- MARGIN BEFORE CARDS -->
+
+  <!-- FORM CONTAINER-->
+  <div class="container">
+
+    <div class="container my-1 alert alert-dismissible alert-success fade show d-none" role="alert"
+      id="alertNotification">
+      <span id="alertMessage">Example alert</span>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="px-2 text-dark my-3 align-items-center py-3 rounded home-card">
+      <h2 class="mx-3">Prenota un appuntamento</h2>
+      <form class="mx-3" id="interactiveForm" class="needs-validation" method="post">
+
+        <div class="form-group my-2">
+          <label class="form-label" for="emailInput">Indirizzo Email</label>
+          <input type="email" class="form-control" id="emailInput" placeholder="Email" name="emailInput" required>
+        </div>
+        <div class="form-group my-2">
+          <label class="form-label" for="nameInput">Nome e Cognome</label>
+          <input type="text" class="form-control" id="nameInput" placeholder="Nome Cognome" name="nameInput" required>
+        </div>
+        <div class="form-group my-2">
+          <label class="form-label" for="numberInput">Numero di Telefono</label>
+          <input type="tel" class="form-control" id="numberInput" placeholder="Numero di telefono" name="numberInput"
+            pattern="[0-9]{8,12}" required>
+        </div>
+        <div class="form-group my-2">
+          <label class="form-label" for="vehicleInput">Veicolo</label>
+          <input type="text" class="form-control" id="vehicleInput" placeholder="Marca e modello" name="vehicleInput"
+            required>
+        </div>
+        <div class="form-group my-2">
+          <label class="form-label" for="dateInput">Data e Ora</label>
+          <input type="text" class="form-control" id="dateInput" name="dateInput" placeholder="Seleziona una data">
+        </div>
+
+        <div class="mb-3 my-2">
+          <label for="descriptionInput" class="form-label">Descrivi il tuo problema</label>
+          <textarea rows="5" maxlength="500" id="descriptionInput" class="form-control mb-1" name="descriptionInput"
+            placeholder="Descrivi il tuo problema in maniera dettagliata (max. 500 caratteri)" required></textarea>
+          <div id="progress">
+            <div id="progress-bar"></div>
+            <p id="remaining-chars"></p>
+          </div>
+          <br>
+        </div>
+        <button id="buttonInvia" type="submit" class="btn btn-dark my-1 d-block gradient mx-auto">Prenota</button>
+        <div id="output"></div>
+      </form>
+    </div>
+
+    <script src="https://npmcdn.com/flatpickr/dist/flatpickr.min.js"></script>
+    <script src="https://npmcdn.com/flatpickr/dist/l10n/it.js"></script>
+  </div> <!-- FINE DIV CONTAINER -->
+
+
+
+  <!-- FOOTER -->
+  <div class="footer mt-auto t-100">
+    <footer class="text-center align-items-center px-2 px-sm-4">
+      <div class="col-6">© 2024 Autoriparazioni San Bernardo di Carrara Agostino</div>
+      <div class="col-6">P.IVA XXXXXXXXXXX</div>
+    </footer>
+  </div>
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- SCRIPTS -->
+  <script type="text/javascript" src="{{ url_for('static',filename='javascript/progressbar.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static',filename='javascript/inviaprenotazione.js') }}"></script>
+</body>
+
+</html>
